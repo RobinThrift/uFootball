@@ -1,0 +1,36 @@
+{
+    "extends": "airbnb/base",
+    "parser": "babel-eslint",
+    "pulgins": [
+        "flowtype",
+        "flow-vars"
+    ],
+    "rules": {
+        "comma-dangle": [2, "never"],
+        "id-length": 0,
+        "indent": [2, 4, {
+            "SwitchCase": 1
+        }],
+        "no-bitwise": 1,
+        "no-multi-spaces": [2, {
+            "exceptions": {
+                "VariableDeclarator": true
+            }
+        }],
+        "prefer-const": 0,
+        "object-curly-spacing": [2, "never"],
+        "consistent-return": 0,
+        "array-callback-return": 0,
+        "padded-blocks": [2, {
+            "blocks": "never",
+            "switches": "never",
+            "classes": "never"
+        }],
+        "flowtype/require-parameter-type": 0,
+        "flowtype/require-return-type": 0,
+        "flowtype/space-after-type-colon": [1, "always"],
+        "flowtype/space-before-type-colon": [1, "never"],
+        "flow-vars/define-flow-type": 1,
+        "flow-vars/use-flow-type": 1
+    }
+}
