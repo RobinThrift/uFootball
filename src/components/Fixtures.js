@@ -4,7 +4,9 @@ import {View, Text, StyleSheet} from 'react-native';
 
 let styles = StyleSheet.create({
     base: {
-        flex: 1
+        flex: 1,
+        marginTop: 80,
+        marginHorizontal: 20
     }
 });
 

@@ -6,6 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
+    "lodash": "^4.15.0",
     "react": "15.3.1",
     "react-native": "0.33.0",
     "react-native-router-flux": "^3.35.0",
@@ -16,7 +18,11 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "ava": "^0.16.0",
     "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-react-native": "^1.9.0",
+    "babel-register": "^6.14.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-flow-vars": "^0.5.0",
@@ -25,6 +31,14 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.2.2",
     "flow-bin": "^0.30.0",
+    "isomorphic-fetch": "^2.2.1",
+    "nock": "^8.0.0",
     "redux-logger": "^2.6.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }

@@ -15,7 +15,7 @@ export function uFootball() {
         <View style={styles.base}>
             <Router>
                 <Scene key="root">
-                    <Scene key="fixtures" component={Fixtures} title="Fixtures" />
+                    <Scene key="fixtures" component={Fixtures} title="Fixtures" initial={true} />
                 </Scene>
             </Router>
         </View>

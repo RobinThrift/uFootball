@@ -16,7 +16,7 @@ build:
 
 
 test:
-	@$(BIN_DIR)/jest
+	@$(BIN_DIR)/ava src/**/__test__/**.spec.js
 
 
 lint:
