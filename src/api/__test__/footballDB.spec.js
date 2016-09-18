@@ -1,8 +1,8 @@
 import test from 'ava';
 import nock from 'nock';
 import 'isomorphic-fetch';
-import {getTeams, getCompetitions, getFixtures} from '../footballDB';
 import {List} from 'immutable';
+import {getTeams, getCompetitions, getFixtures} from '../footballDB';
 
 const BASE_URL = 'https://api.football-data.org';
 
@@ -38,7 +38,7 @@ test('getTeams', async (t) => {
     });
 
     api.isDone();
-})
+});
 
 test('getCompetitions', async (t) => {
     t.plan(4);

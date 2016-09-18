@@ -1,10 +1,20 @@
 {
     "extends": "airbnb/base",
     "parser": "babel-eslint",
-    "pulgins": [
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
         "flowtype",
-        "flow-vars"
+        "flow-vars",
+        "react"
     ],
+    "globals": {
+        "__DEV__": true,
+        "fetch": true
+    },
     "rules": {
         "comma-dangle": [2, "never"],
         "id-length": 0,
@@ -18,6 +28,8 @@
             }
         }],
         "prefer-const": 0,
+        "import/prefer-default-export": 0,
+        "import/no-mutable-exports": 0,
         "object-curly-spacing": [2, "never"],
         "consistent-return": 0,
         "array-callback-return": 0,
@@ -31,6 +43,11 @@
         "flowtype/space-after-type-colon": [1, "always"],
         "flowtype/space-before-type-colon": [1, "never"],
         "flow-vars/define-flow-type": 1,
-        "flow-vars/use-flow-type": 1
+        "flow-vars/use-flow-type": 1,
+        "import/no-extraneous-dependencies": 0,
+        "global-require": 0,
+        "arrow-parens": 0,
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error"
     }
 }

@@ -1,7 +1,8 @@
 // @flow
-import type {Team, Competition, Fixture} from '../flow/types';
+/* eslint-disable no-underscore-dangle */
 import {List} from 'immutable';
 import last from 'lodash/last';
+import type {Team, Competition, Fixture} from '../flow/types';
 
 const BASE_URL = 'https://api.football-data.org/v1';
 
