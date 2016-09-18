@@ -2,9 +2,6 @@
   "name": "uFootball",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
-  },
   "dependencies": {
     "immutable": "^3.8.1",
     "lodash": "^4.15.0",
