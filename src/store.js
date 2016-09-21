@@ -2,6 +2,7 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {persistStore, autoRehydrate} from 'redux-persist';
+import immutableTransform from 'redux-persist-transform-immutable';
 import {AsyncStorage} from 'react-native';
 import createLogger from 'redux-logger';
 import {rootReducer} from './reducers';
@@ -23,7 +24,8 @@ export function configureStore(onComplete: Function) {
 
     persistStore(store, {
         whitelist: ['user', 'fixtures'],
-        storage: AsyncStorage
+        storage: AsyncStorage,
+        transforms: [immutableTransform()]
     }, onComplete);
 
     return store;
