@@ -18,6 +18,9 @@ build:
 test:
 	@$(BIN_DIR)/ava src/**/__test__/**.spec.js
 
+watch-test:
+	@$(BIN_DIR)/ava --watch src/**/__test__/**.spec.js
+
 
 lint:
 	@echo "  $(P) lint"
