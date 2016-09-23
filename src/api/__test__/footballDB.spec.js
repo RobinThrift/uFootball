@@ -2,7 +2,7 @@ import test from 'ava';
 import nock from 'nock';
 import 'isomorphic-fetch';
 import {List} from 'immutable';
-import {getTeams, getCompetitions, getFixtures} from '../footballDB';
+import {getTeams, getCompetitions, getFixtures, getTable} from '../footballDB';
 
 const BASE_URL = 'https://api.football-data.org';
 
@@ -97,5 +97,40 @@ test('getFixtures', async (t) => {
     api.isDone();
 });
 
-test.todo('getTable');
+test('getTable', async (t) => {
+    t.plan(4);
 
+    let api = nock(BASE_URL)
+        .get('/v1/competitions/426/leagueTable')
+        .reply(200, require('../../../fixtures/table.json'));
+
+    let table = await getTable(426);
+    t.true(List.isList(table));
+    t.is(table.size, 2);
+    t.deepEqual(table.get(0), {
+        id: 65,
+        position: 1,
+        teamName: "Manchester City FC",
+        playedGames: 5,
+        points: 15,
+        goals: 15,
+        goalsAgainst: 4,
+        goalDifference: 11,
+        wins: 5,
+        draws: 0,
+        losses: 0
+    });
+    t.deepEqual(table.get(1), {
+        id: 62,
+        position: 2,
+        teamName: "Everton FC",
+        playedGames: 5,
+        points: 13,
+        goals: 10,
+        goalsAgainst: 3,
+        goalDifference: 7,
+        wins: 4,
+        draws: 1,
+        losses: 0
+    });
+});

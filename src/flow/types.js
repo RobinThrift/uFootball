@@ -27,3 +27,19 @@ export type Competition = {
     currentMatchday: number
 }
 
+export type TablePosition = {
+    id: number,
+    position: number,
+    teamName: string,
+    playedGames: number,
+    points: number,
+    goals: number,
+    goalsAgainst: number,
+    goalDifference: number,
+    wins: number,
+    draws: number,
+    losses: number
+}
+
+export type Table = Array<TablePosition>
+

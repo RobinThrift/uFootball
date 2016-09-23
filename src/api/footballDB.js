@@ -2,7 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 import {List} from 'immutable';
 import last from 'lodash/last';
-import type {Team, Competition, Fixture} from '../flow/types';
+import type {Team, Competition, Fixture, Table} from '../flow/types';
 
 const BASE_URL = 'https://api.football-data.org/v1';
 
@@ -63,3 +63,23 @@ export function getFixtures(competition: number, matchday: number): Promise<List
         })));
 }
 
+
+export function getTable(competition: number): Promise<List<Table>> {
+    return fetch(`${BASE_URL}/competitions/${competition}/leagueTable`)
+        .then(resp => resp.json())
+        .then(data => data.standing)
+        .then(dataToList(team => ({
+                id: getIdFromUrl(team._links.team.href),
+                position: team.position,
+                teamName: team.teamName,
+                playedGames: team.playedGames,
+                points: team.points,
+                goals: team.goals,
+                goalsAgainst: team.goalsAgainst,
+                goalDifference: team.goalDifference,
+                wins: team.wins,
+                draws: team.draws,
+                losses: team.losses
+            })
+        ));
+}
