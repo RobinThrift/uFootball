@@ -33,10 +33,18 @@ flow:
 
 check: lint flow
 
+start:
+	@echo "  $(P) run"
+	@$(BIN_DIR)/react-native start --reset-cache
 
 run:
 	@echo "  $(P) run"
 	@$(BIN_DIR)/react-native run-ios
+
+clean:
+	@echo "  $(P) clean"
+	watchman watch-del-all
+	rm -rf ios/build/*
 
 
 .PHONY: test build
