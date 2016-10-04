@@ -1,5 +1,4 @@
 // @flow
-import React from 'react';
 import {connect} from 'react-redux';
 import {Teams as InternalTeams} from '../components/Teams';
 import {getTeams} from '../actions/teams';

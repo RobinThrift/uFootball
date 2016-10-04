@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import {View, Text, StyleSheet, ListView, TouchableHighlight} from 'react-native';
-import type {Competition} from '../flow/types';
 import type {List} from 'immutable';
+import type {Competition} from '../flow/types';
 
 let styles = StyleSheet.create({
     base: {
@@ -33,7 +33,7 @@ export class Competitions extends React.Component {
         comps: ListView.DataSource
     };
 
-    constructor(props, context) {
+    constructor(props: CompetitionsProps, context?: Object) {
         super(props, context);
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.props.getCompetitions(this.props.year);
@@ -42,13 +42,13 @@ export class Competitions extends React.Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: CompetitionsProps) {
         this.setState({
             comps: this.state.comps.cloneWithRows(nextProps.competitions.toJS())
         });
     }
 
-    _renderRow(data: Competition) {
+    renderRow(data: Competition) {
         return (
             <TouchableHighlight
                 onPress={() => this.props.goToTeams(data.id)}
@@ -69,7 +69,7 @@ export class Competitions extends React.Component {
             <ListView
                 style={styles.base}
                 dataSource={this.state.comps}
-                renderRow={this._renderRow.bind(this)}
+                renderRow={this.renderRow.bind(this)}
             />
         );
     }

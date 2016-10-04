@@ -1,5 +1,4 @@
 // @flow
-import React from 'react';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
 import {Competitions as InternalCompetitions} from '../components/Competitions';

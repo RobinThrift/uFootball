@@ -1,9 +1,8 @@
 // @flow
 import React from 'react';
 import {View, Text, StyleSheet, ListView, TouchableHighlight} from 'react-native';
-import {Actions} from 'react-native-router-flux';
-import type {Team} from '../flow/types';
 import type {List} from 'immutable';
+import type {Team} from '../flow/types';
 
 let styles = StyleSheet.create({
     base: {
@@ -22,7 +21,8 @@ let styles = StyleSheet.create({
 
 export type TeamsProps = {
     teams: List<Team>,
-    getTeams: (competition: number) => void
+    getTeams: (competition: number) => void,
+    competition: number
 }
 
 export class Teams extends React.Component {
@@ -32,7 +32,7 @@ export class Teams extends React.Component {
         teams: ListView.DataSource
     };
 
-    constructor(props, context) {
+    constructor(props: TeamsProps, context?: Object) {
         super(props, context);
         this.props.getTeams(this.props.competition);
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -41,19 +41,19 @@ export class Teams extends React.Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: TeamsProps) {
         this.setState({
             teams: this.state.teams.cloneWithRows(nextProps.teams.toJS())
         });
     }
 
-    _openTeam(id: number) {
-        console.log('id', id);
+    openTeam(id: number) {
+        console.log('openTeam', id);
     }
 
-    _renderRow(data: Team) {
+    renderRow(data: Team) {
         return (
-            <TouchableHighlight onPress={() => this._openTeam(data.id)}>
+            <TouchableHighlight onPress={() => this.openTeam(data.id)}>
                 <View
                     key={data.id}
                     style={styles.row}
@@ -69,7 +69,7 @@ export class Teams extends React.Component {
             <ListView
                 style={styles.base}
                 dataSource={this.state.teams}
-                renderRow={this._renderRow}
+                renderRow={this.renderRow.bind(this)}
             />
         );
     }

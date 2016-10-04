@@ -8,6 +8,7 @@ export type FSA = {
 }
 
 export type Team = {
+    id: number,
     name: string,
     code: string
 }
