@@ -11,6 +11,6 @@ export function getCompetitions(season: number) {
             .then((comps) => {
                 dispatch({type: GET_COMPETITIONS_END, payload: comps});
             });
-    }
+    };
 }
 

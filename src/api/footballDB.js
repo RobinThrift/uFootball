@@ -69,17 +69,17 @@ export function getTable(competition: number): Promise<List<Table>> {
         .then(resp => resp.json())
         .then(data => data.standing)
         .then(dataToList(team => ({
-                id: getIdFromUrl(team._links.team.href),
-                position: team.position,
-                teamName: team.teamName,
-                playedGames: team.playedGames,
-                points: team.points,
-                goals: team.goals,
-                goalsAgainst: team.goalsAgainst,
-                goalDifference: team.goalDifference,
-                wins: team.wins,
-                draws: team.draws,
-                losses: team.losses
-            })
-        ));
+            id: getIdFromUrl(team._links.team.href),
+            position: team.position,
+            teamName: team.teamName,
+            playedGames: team.playedGames,
+            points: team.points,
+            goals: team.goals,
+            goalsAgainst: team.goalsAgainst,
+            goalDifference: team.goalDifference,
+            wins: team.wins,
+            draws: team.draws,
+            losses: team.losses
+        })
+    ));
 }

@@ -1,7 +1,7 @@
 // @flow
 import {List} from 'immutable';
 import {createReducer} from '../utils/createReducer';
-import {Competition, FSA} from '../flow/types';
+import type {Competition} from '../flow/types';
 import {GET_COMPETITIONS_START, GET_COMPETITIONS_END} from '../actions/competitions';
 
 

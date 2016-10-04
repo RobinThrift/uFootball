@@ -110,7 +110,7 @@ test('getTable', async (t) => {
     t.deepEqual(table.get(0), {
         id: 65,
         position: 1,
-        teamName: "Manchester City FC",
+        teamName: 'Manchester City FC',
         playedGames: 5,
         points: 15,
         goals: 15,
@@ -123,7 +123,7 @@ test('getTable', async (t) => {
     t.deepEqual(table.get(1), {
         id: 62,
         position: 2,
-        teamName: "Everton FC",
+        teamName: 'Everton FC',
         playedGames: 5,
         points: 13,
         goals: 10,
@@ -133,4 +133,6 @@ test('getTable', async (t) => {
         draws: 1,
         losses: 0
     });
+
+    api.isDone();
 });

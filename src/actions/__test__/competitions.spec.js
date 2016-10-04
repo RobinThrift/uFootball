@@ -48,10 +48,9 @@ test('getCompetitions action', async (t) => {
 
     await store.dispatch(getCompetitions(2016));
 
-    let actions = store.getActions();
     t.deepEqual(store.getActions(), [
         {type: 'uFootball/GET_COMPETITIONS_START'},
-        {type: 'uFootball/GET_COMPETITIONS_END', payload: returnValue},
+        {type: 'uFootball/GET_COMPETITIONS_END', payload: returnValue}
     ]);
 
     mockery.deregisterMock('../api/footballDB');
