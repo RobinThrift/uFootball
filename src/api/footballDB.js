@@ -59,7 +59,8 @@ export function getFixtures(competition: number, matchday: number): Promise<List
             score: [
                 d.result.goalsHomeTeam,
                 d.result.goalsAwayTeam
-            ]
+            ],
+            matchday: d.matchday
         })));
 }
 

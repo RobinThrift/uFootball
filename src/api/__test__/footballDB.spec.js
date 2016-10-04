@@ -85,13 +85,15 @@ test('getFixtures', async (t) => {
         date: new Date('2016-09-16T19:00:00Z'),
         status: 'FINISHED',
         teams: [61, 64],
-        score: [1, 2]
+        score: [1, 2],
+        matchday: 5
     });
     t.deepEqual(fixtures.get(1), {
         date: new Date('2016-09-17T14:00:00Z'),
         status: 'FINISHED',
         teams: [322, 57],
-        score: [1, 4]
+        score: [1, 4],
+        matchday: 5
     });
 
     api.isDone();

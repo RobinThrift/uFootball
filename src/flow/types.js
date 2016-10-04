@@ -16,7 +16,8 @@ export type Fixture = {
     date: Date,
     status: 'SCHEDULED' | 'FINISHED',
     teams: [number, number],
-    score: [number, number]
+    score: [number, number],
+    matchday: number
 }
 
 export type Competition = {
