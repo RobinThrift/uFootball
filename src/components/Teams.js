@@ -6,23 +6,38 @@ import type {Team} from '../flow/types';
 
 let styles = StyleSheet.create({
     base: {
+        flex: 1
+    },
+    listView: {
         flex: 1,
-        marginTop: 70
+        paddingVertical: 20,
+        marginHorizontal: 20,
+        marginVertical: 40,
+        backgroundColor: '#ffffff',
+        borderRadius: 3
     },
     row: {
         flex: 1,
-        height: 40,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderBottomColor: '#c0c0c0',
+        height: 55,
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        marginVertical: 5,
+        marginHorizontal: 20,
+        borderBottomColor: '#dbdee3',
         borderBottomWidth: 1
+    },
+    teamName: {
+        color: '#92979b',
+        fontSize: 18,
+        fontFamily: 'Avenir-Black'
     }
 });
 
 export type TeamsProps = {
     teams: List<Team>,
     getTeams: (competition: number) => void,
-    competition: number
+    competition: number,
+    style: {[key: string]: string | number}
 }
 
 export class Teams extends React.Component {
@@ -47,18 +62,18 @@ export class Teams extends React.Component {
         });
     }
 
-    openTeam(id: number) {
-        console.log('openTeam', id);
+    selectTeam(id: number) {
+        return id;
     }
 
     renderRow(data: Team) {
         return (
-            <TouchableHighlight onPress={() => this.openTeam(data.id)}>
+            <TouchableHighlight onPress={() => this.selectTeam(data.id)}>
                 <View
                     key={data.id}
                     style={styles.row}
                 >
-                    <Text>{data.name}</Text>
+                    <Text style={styles.teamName}>{data.name}</Text>
                 </View>
             </TouchableHighlight>
         );
@@ -67,7 +82,8 @@ export class Teams extends React.Component {
     render() {
         return (
             <ListView
-                style={styles.base}
+                enableEmptySections={true}
+                style={[styles.base, this.props.style]}
                 dataSource={this.state.teams}
                 renderRow={this.renderRow.bind(this)}
             />

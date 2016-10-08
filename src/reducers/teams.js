@@ -2,17 +2,21 @@
 import {List} from 'immutable';
 import {createReducer} from '../utils/createReducer';
 import type {Team} from '../flow/types';
-import {GET_TEAMS_START, GET_TEAMS_END} from '../actions/teams';
+import {GET_TEAMS_START, GET_TEAMS_END, SET_OPEN} from '../actions/teams';
 
 
 export type CompState = {
     competitions: List<Team>,
-    loading: boolean
+    loading: boolean,
+    isOpen: boolean,
+    selectedCompetition?: number
 }
 
 const initState = {
     teams: new List(),
-    loading: false
+    loading: false,
+    isOpen: false,
+    selectedCompetition: undefined
 };
 
 export let teams = createReducer({
@@ -24,6 +28,11 @@ export let teams = createReducer({
         ...state,
         teams: payload,
         loading: false
+    }),
+    [SET_OPEN]: (state, {payload}) => ({
+        ...state,
+        isOpen: payload.isOpen,
+        selectedCompetition: payload.id
     })
 }, initState);
 

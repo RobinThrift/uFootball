@@ -1,21 +1,18 @@
 // @flow
 import {connect} from 'react-redux';
-import {Actions} from 'react-native-router-flux';
 import {Competitions as InternalCompetitions} from '../components/Competitions';
 import {getCompetitions} from '../actions/competitions';
+import {openTeamSelection} from '../actions/teams';
 
 let mapStateToProps = store => ({
-    competitions: store.competitions.competitions
+    competitions: store.competitions.competitions,
+    isTeamsOpen: store.teams.isOpen,
+    selectedCompetition: store.teams.selectedCompetition
 });
 
 let mapDispatchToProps = {
     getCompetitions,
-    goToTeams: (competition: number) => {
-        Actions.teams({competition});
-        return {
-            type: 'uFootball/GO_TO_TEAMS'
-        };
-    }
+    openTeamSelection
 };
 
 

@@ -14,7 +14,7 @@ class Root extends Component {
     constructor() {
         super();
         this.state = {
-            preparing: false,
+            preparing: true,
             store: configureStore(() => this.setState({
                 preparing: false
             }))

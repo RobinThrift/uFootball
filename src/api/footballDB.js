@@ -6,6 +6,10 @@ import type {Team, Competition, Fixture, Table} from '../flow/types';
 
 const BASE_URL = 'https://api.football-data.org/v1';
 
+const BASE_HEADERS = new Headers({
+    'X-Auth-Token': 'API_TOKEN_HERE'
+});
+
 function getIdFromUrl(url: string): number {
     return parseInt(last(url.split('/')), 10);
 }
@@ -17,7 +21,7 @@ function dataToList<T>(transform: (d: Object) => T) {
 // @TODO: error handling
 // @TODO: docs
 export function getTeams(competition: number): Promise<List<Team>> {
-    return fetch(`${BASE_URL}/competitions/${competition}/teams`)
+    return fetch(`${BASE_URL}/competitions/${competition}/teams`, {headers: BASE_HEADERS})
         .then(resp => resp.json())
         .then(data => data.teams)
         .then(dataToList(d => ({
@@ -32,7 +36,7 @@ export function getTeams(competition: number): Promise<List<Team>> {
 // @TODO: error handling
 // @TODO: docs
 export function getCompetitions(year: number): Promise<List<Competition>> {
-    return fetch(`${BASE_URL}/competitions?season=${year}`)
+    return fetch(`${BASE_URL}/competitions?season=${year}`, {headers: BASE_HEADERS})
         .then(resp => resp.json())
         .then(data => new List(data.map(d => ({
             id: d.id,
