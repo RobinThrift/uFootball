@@ -22,51 +22,39 @@ let styles = StyleSheet.create({
     },
     listView: {
         flex: 1,
-        paddingVertical: 20,
-        marginHorizontal: 20,
-        marginVertical: 40,
-        backgroundColor: '#ffffff',
-        borderRadius: 3
+        marginVertical: 30,
+        backgroundColor: 'transparent'
     },
     row: {
         flex: 1,
-        height: 55,
+        height: 60,
         alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        marginVertical: 5,
-        marginHorizontal: 20,
-        borderBottomColor: '#dbdee3',
+        justifyContent: 'center',
+        paddingHorizontal: 20,
+        borderBottomColor: '#ffffff',
         borderBottomWidth: 1
     },
     compName: {
-        color: '#92979b',
+        color: '#ffffff',
         fontSize: 18,
         fontFamily: 'Avenir-Black'
     },
     compYear: {
-        color: '#92979b',
+        color: '#ffffff',
         fontSize: 15,
         fontFamily: 'Avenir'
     },
     teamSelectionAnim: {
         position: 'absolute',
-        top: 20,
-        left: 20,
-        bottom: 20,
+        top: 0,
+        left: 0,
+        bottom: 0,
         right: -10,
         zIndex: 100
     },
     teamSelection: {
-        paddingVertical: 20,
-        backgroundColor: '#ffffff',
-        borderRadius: 3,
-        shadowColor: '#000000',
-        shadowOffset: {
-            height: -5,
-            width: -5
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 5
+        paddingVertical: 30,
+        backgroundColor: '#738bd0'
     }
 });
 

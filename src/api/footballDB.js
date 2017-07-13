@@ -7,7 +7,7 @@ import type {Team, Competition, Fixture, Table} from '../flow/types';
 const BASE_URL = 'https://api.football-data.org/v1';
 
 const BASE_HEADERS = new Headers({
-    'X-Auth-Token': 'API_TOKEN_HERE'
+    'X-Auth-Token': 'acff636808424610a90540e705671e1d'
 });
 
 function getIdFromUrl(url: string): number {

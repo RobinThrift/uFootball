@@ -3,6 +3,7 @@ import {getTeams as getTeamsFromApi} from '../api/footballDB';
 export const GET_TEAMS_START = 'uFootball/GET_TEAMS_START';
 export const GET_TEAMS_END = 'uFootball/GET_TEAMS_END';
 export const SET_OPEN = 'uFootball/SET_OPEN';
+export const ADD_TEAM = 'uFootball/ADD_TEAM';
 
 
 export function getTeams(competition: number) {
@@ -29,3 +30,9 @@ export function closeTeamSelection() {
     };
 }
 
+export function addTeam(id: number) {
+    return {
+        type: ADD_TEAM,
+        payload: {id}
+    }
+}

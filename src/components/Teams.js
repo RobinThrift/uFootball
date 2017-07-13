@@ -13,7 +13,7 @@ let styles = StyleSheet.create({
         paddingVertical: 20,
         marginHorizontal: 20,
         marginVertical: 40,
-        backgroundColor: '#ffffff',
+        backgroundColor: 'transparent',
         borderRadius: 3
     },
     row: {
@@ -23,11 +23,11 @@ let styles = StyleSheet.create({
         justifyContent: 'flex-start',
         marginVertical: 5,
         marginHorizontal: 20,
-        borderBottomColor: '#dbdee3',
+        borderBottomColor: '#ffffff',
         borderBottomWidth: 1
     },
     teamName: {
-        color: '#92979b',
+        color: '#ffffff',
         fontSize: 18,
         fontFamily: 'Avenir-Black'
     }
@@ -68,7 +68,10 @@ export class Teams extends React.Component {
 
     renderRow(data: Team) {
         return (
-            <TouchableHighlight onPress={() => this.selectTeam(data.id)}>
+            <TouchableHighlight
+                onPress={() => this.props.selectTeam(data.id)}
+                underlayColor="rgba(0,0,0,0.1)"
+            >
                 <View
                     key={data.id}
                     style={styles.row}

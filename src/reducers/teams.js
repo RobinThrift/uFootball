@@ -2,7 +2,7 @@
 import {List} from 'immutable';
 import {createReducer} from '../utils/createReducer';
 import type {Team} from '../flow/types';
-import {GET_TEAMS_START, GET_TEAMS_END, SET_OPEN} from '../actions/teams';
+import {GET_TEAMS_START, GET_TEAMS_END, SET_OPEN, ADD_TEAM} from '../actions/teams';
 
 
 export type CompState = {
